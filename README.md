@@ -25,30 +25,35 @@ Repeats step 2 until the task is complete (or it fails — which is totally poss
 
 Say you have a buggy calculator app, and you want the agent to fix it:
 
-bash
+```bash
 Copy
 Edit
 python3 main.py "fix my calculator app, its not starting correctly"
+```
+
 Output (Example):
+
+```bash
 shell
 Copy
 Edit
 
-# Calling function: get_files_info
+- Calling function: get_files_info
 
-# Calling function: get_file_content
+- Calling function: get_file_content
 
-# Calling function: write_file
+- Calling function: write_file
 
-# Calling function: run_python_file
+- Calling function: run_python_file
 
-# Calling function: write_file
+- Calling function: write_file
 
-# Calling function: run_python_file
+- Calling function: run_python_file
 
-# Final response:
+- Final response:
 
-# Great! The calculator app now seems to be working correctly. The output shows the expression and the result in a formatted way.
+- Great! The calculator app now seems to be working correctly. The output shows the expression and the result in a formatted way.
+```
 
 ## 📦 Prerequisites
 

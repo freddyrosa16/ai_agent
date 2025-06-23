@@ -2,7 +2,8 @@ import os
 
 def get_file_content(working_directory, file_path):
     absolute_working_directory = os.path.abspath(working_directory)
-    absolute_file_path = os.path.abspath(file_path)
+    full_file_path = os.path.join(working_directory, file_path)
+    absolute_file_path = os.path.abspath(full_file_path)
 
     if not absolute_file_path.startswith(absolute_working_directory):
         return f'Error: Cannot read "{file_path}" as it is outside the permitted working directory'
@@ -20,4 +21,4 @@ def get_file_content(working_directory, file_path):
             else:
                 return file_content_string
     except Exception as e:
-        print(f"Error: {e}")
+        return f"Error: {e}"

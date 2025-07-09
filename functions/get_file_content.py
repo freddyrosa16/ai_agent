@@ -1,20 +1,6 @@
 import os
 from google.genai import types
 
-schema_get_files_content = types.FunctionDeclaration(
-    name="get_files_info",
-    description="Lists files in the specified directory along with their sizes, constrained to the working directory.",
-    parameters=types.Schema(
-        type=types.Type.OBJECT,
-        properties={
-            "directory": types.Schema(
-                type=types.Type.STRING,
-                description="The directory to list files from, relative to the working directory. If not provided, lists files in the working directory itself.",
-            ),
-        },
-    ),
-)
-
 def get_file_content(working_directory, file_path):
     absolute_working_directory = os.path.abspath(working_directory)
     full_file_path = os.path.join(working_directory, file_path)
@@ -37,3 +23,17 @@ def get_file_content(working_directory, file_path):
                 return file_content_string
     except Exception as e:
         return f"Error: {e}"
+    
+schema_get_files_content = types.FunctionDeclaration(
+    name="get_files_info",
+    description="Lists files in the specified directory along with their sizes, constrained to the working directory.",
+    parameters=types.Schema(
+        type=types.Type.OBJECT,
+        properties={
+            "directory": types.Schema(
+                type=types.Type.STRING,
+                description="The directory to list files from, relative to the working directory. If not provided, lists files in the working directory itself.",
+            ),
+        },
+    ),
+)

@@ -25,14 +25,14 @@ def get_file_content(working_directory, file_path):
         return f"Error: {e}"
     
 schema_get_files_content = types.FunctionDeclaration(
-    name="get_files_info",
-    description="Lists files in the specified directory along with their sizes, constrained to the working directory.",
+    name="get_file_content",
+    description="Reads and returns the contents of the specified file, as long as the file is within the permitted working directory.",
     parameters=types.Schema(
         type=types.Type.OBJECT,
         properties={
-            "directory": types.Schema(
+            "file_path": types.Schema(
                 type=types.Type.STRING,
-                description="The directory to list files from, relative to the working directory. If not provided, lists files in the working directory itself.",
+                description="The path to the file to read, relative to the working directory.",
             ),
         },
     ),

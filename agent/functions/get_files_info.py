@@ -24,14 +24,15 @@ def get_files_info(working_directory, directory="."):
     
 schema_get_files_info = types.FunctionDeclaration(
     name="get_files_info",
-    description="Lists files in the specified directory along with their sizes, constrained to the working directory.",
+    description="List files and directories within the working directory, including their sizes and whether each is a directory.",
     parameters=types.Schema(
         type=types.Type.OBJECT,
         properties={
             "directory": types.Schema(
                 type=types.Type.STRING,
-                description="The directory to list files from, relative to the working directory. If not provided, lists files in the working directory itself.",
+                description="Optional relative path to a subdirectory within the working directory. If omitted, lists files in the working directory itself."
             ),
         },
     ),
 )
+
